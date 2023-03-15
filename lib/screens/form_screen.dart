@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:introduction/components/task.dart';
+import 'package:introduction/data/task_dao.dart';
 import 'package:introduction/data/task_inherited.dart';
 
 class FormScreen extends StatefulWidget {
@@ -26,8 +28,7 @@ class _FormScreenState extends State<FormScreen> {
 
   bool difficultyValidator(String? value) {
     if (value != null && value.isEmpty) {
-      if (int.parse(value) > 5 ||
-          int.parse(value) < 1) {
+      if (int.parse(value) > 5 || int.parse(value) < 1) {
         return true;
       }
     }
@@ -144,6 +145,11 @@ class _FormScreenState extends State<FormScreen> {
                         // print(nameController.text);
                         // print(int.parse(difficultyController.text));
                         // print(imageController.text);
+                        TaskDao().save(Task(
+                          nameController.text,
+                          imageController.text,
+                          int.parse(difficultyController.text),
+                        ));
                         TaskInherited.of(widget.taskContext).newTask(
                             nameController.text,
                             imageController.text,
