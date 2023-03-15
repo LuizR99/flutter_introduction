@@ -17,7 +17,13 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
-        actions: [IconButton(onPressed: (){setState(() {});}, icon: Icon(Icons.refresh))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {});
+              },
+              icon: Icon(Icons.refresh))
+        ],
         title: const Text('App teste'),
       ),
       body: Padding(
@@ -94,7 +100,9 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          ).then((value) => setState(() {print('recarregando tarefa');}));
+          ).then((value) => setState(() {
+                print('recarregando tarefas');
+              }));
         },
         child: const Icon(Icons.add),
       ),

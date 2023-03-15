@@ -148,12 +148,11 @@ class _FormScreenState extends State<FormScreen> {
                         TaskDao().save(Task(
                           nameController.text,
                           imageController.text,
-                          int.parse(difficultyController.text),
-                        ));
-                        TaskInherited.of(widget.taskContext).newTask(
-                            nameController.text,
-                            imageController.text,
-                            int.parse(difficultyController.text));
+                          int.parse(difficultyController.text)));
+                        // TaskInherited.of(widget.taskContext).newTask(
+                        //     nameController.text,
+                        //     imageController.text,
+                        //     int.parse(difficultyController.text));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Salvando nova tarefa'),
